@@ -23,13 +23,16 @@ agent any
     /* This builds the actual image; synonymous to
          * docker build on the command line */
       steps{    
-        sh 'docker build -t hiepls98/multi-snake .'
-          }
+	withDockerRegistry(credentialsId: 'docker account', url: 'https://index.docker.io/v1/') {
+	    sh 'docker build -t hiepls98/multi-snake:v1 .'   
+	    sh 'docker push hiepls98/multi-snake:v1 '
+	   }
+        }
     }
 
     stage('Post-to-dockerhub') {
      steps {
-        sh 'docker push hiepls98/multi-snake:new'
+        sh 'echo Post to dockerhub'
      }
     }
 
