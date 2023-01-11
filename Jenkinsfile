@@ -22,8 +22,8 @@ agent any
     stage('Build-and-Tag') {
       steps{    
 	 withDockerRegistry(credentialsId: 'docker account', url: 'https://index.docker.io/v1/') {
-	     sh 'docker build -t hiepls98/multi-snake:v1 .'   
-	     sh 'docker push hiepls98/multi-snake:v1 '
+	     sh label: ", script:'docker build -t hiepls98/multi-snake:v1 .'   
+	     sh label: ", 'docker push hiepls98/multi-snake:v1 '
 	   }
       }
     }
