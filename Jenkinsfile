@@ -8,6 +8,7 @@ agent any
       steps
         {
         /* Let's make sure we have the repository cloned to our workspace */
+       git credentialsId: 'snakedemo', url: 'https://github.com/sk4rl1ghT/multi-snake-app.git'
        checkout scm
         }  
     }
@@ -22,13 +23,13 @@ agent any
     /* This builds the actual image; synonymous to
          * docker build on the command line */
       steps{    
-        sh 'echo Build and Tag'
+        sh 'docker build -t hiepls98/multi-snake .'
           }
     }
 
     stage('Post-to-dockerhub') {
      steps {
-        sh 'echo post to dockerhub repo'
+        sh 'docker push hiepls98/multi-snake:new'
      }
     }
 
