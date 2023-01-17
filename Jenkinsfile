@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Docker push to registry') {
             steps {
-                withDockerRegistry(credentialsId: 'docker-hiepls98', url: 'ttps://index.docker.io/v1/') {
+                withDockerRegistry(credentialsId: 'docker-hiepls98', url: 'https://index.docker.io/v1/') {
                     sh 'docker push multi-snake:v1'
                 }
             }
