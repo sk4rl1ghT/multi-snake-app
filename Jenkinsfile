@@ -7,5 +7,10 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('Clone Git') {
+            steps {
+                checkout scm
+            }
+        }
     }
 }
