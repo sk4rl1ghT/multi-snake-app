@@ -12,5 +12,10 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Docker build') {
+            steps {
+                sh 'docker build -t multi-snake:v1 .'
+            }
+        }
     }
 }
