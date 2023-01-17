@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Docker push to registry') {
             steps {
-                sh 'docker push hiepls98/multi-snake-testjenkins:v1'
+                sh 'docker push hiepls98/multi-snake:v1'
             }
         }
     }
