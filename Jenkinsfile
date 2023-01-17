@@ -24,5 +24,11 @@ pipeline {
                 }
             }
         }
+        stage('Docker Pull Server') {
+            steps {
+                sh 'docker-compose down'
+                sh 'docker-compose up -d'
+            }
+        }
     }
 }
