@@ -14,13 +14,13 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-                sh 'docker build -t multi-snake:v1 .'
+                sh 'docker build -t hiepls98/multi-snake:v1 .'
             }
         }
         stage('Docker push to registry') {
             steps {
                 withDockerRegistry(credentialsId: 'docker-hiepls98', url: 'https://index.docker.io/v1/') {
-                    sh 'docker push multi-snake:v1'
+                    sh 'docker push hiepls98/multi-snake:v1'
                 }
             }
         }
